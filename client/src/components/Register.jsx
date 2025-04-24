@@ -40,7 +40,9 @@ const Register = () => {
     }, [])
 
     useEffect(() => {
-        setValidMail(MAIL_REGEX.test(mail));
+        // setValidMail(MAIL_REGEX.test(mail));
+        setValidMail(true);
+
     }, [mail])
 
     useEffect(() => {
@@ -71,6 +73,7 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log({validName, validPwd, validMail, validMatch})
         if (!validName || !validPwd || !validMail || !validMatch) {
             setErrMsg("Invalid Entry");
             return;
